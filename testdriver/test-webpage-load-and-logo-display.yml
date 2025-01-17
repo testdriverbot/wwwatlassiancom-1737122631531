@@ -1,0 +1,25 @@
+version: 4.1.35
+steps:
+  - prompt: Focus the browser window.
+    commands:
+      - command: focus-application
+        name: Google Chrome
+  - prompt: Navigate to the Atlassian homepage.
+    commands:
+      - command: focus-application
+        name: Google Chrome
+      - command: hover-text
+        text: atlassian.com
+        description: address bar with current URL
+        action: click
+      - command: type
+        text: https://www.atlassian.com
+      - command: press-keys
+        keys:
+          - enter
+  - prompt: >-
+      Assert that the Atlassian logo is visible on the page.  # Use the content
+      of the file from the environment
+    commands:
+      - command: assert
+        expect: the Atlassian logo is visible on the page
