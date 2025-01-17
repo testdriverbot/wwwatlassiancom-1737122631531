@@ -1,0 +1,25 @@
+version: 4.1.35
+steps:
+  - prompt: Focus the browser window.
+    commands:
+      - command: hover-text
+        text: Atlassian
+        description: Atlassian logo in the top left corner of the browser
+        action: click
+  - prompt: Scroll to the footer of the homepage.
+    commands:
+      - command: scroll-until-text
+        text: Copyright ©
+        direction: down
+  - prompt: Click on the "Contact Us" link.
+    commands:
+      - command: hover-text
+        text: Contact us
+        description: Contact Us link in the footer
+        action: click
+  - prompt: >-
+      Assert that the Contact Us page loads successfully.  # Use the content of
+      the file from the environment
+    commands:
+      - command: assert
+        expect: Contact our support teams is visible on the page
