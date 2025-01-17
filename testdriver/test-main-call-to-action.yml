@@ -1,0 +1,24 @@
+version: 4.1.35
+steps:
+  - prompt: Focus the browser window.
+    commands:
+      - command: hover-text
+        text: atlassian.com
+        description: address bar in Google Chrome
+        action: click
+  - prompt: Assert that the "Get it free" button is visible on the homepage.
+    commands:
+      - command: assert
+        expect: the "Get it free" button is visible on the homepage
+  - prompt: Click the "Get it free" button.
+    commands:
+      - command: hover-text
+        text: Get it free
+        description: button to start the free trial on the homepage
+        action: click
+  - prompt: >-
+      Assert that the user is redirected to the correct page.  # Use the content
+      of the file from the environment
+    commands:
+      - command: assert
+        expect: the page shows "Get started with Jira"
